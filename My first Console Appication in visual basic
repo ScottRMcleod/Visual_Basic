@@ -1,0 +1,32 @@
+' This is a Simple console application writen in visual basic and has been designed to take 3 numbers
+' from a person and then calculate which of the three values is the highest 
+
+Module Module1
+
+    Sub Main()
+        ' decalre variables of type int
+        Dim num1, num2, num3, highest As Integer
+
+        Console.WriteLine("Welcome to My First If App")
+        Console.WriteLine("this app takes the value of 3 numbers and selects the higest value ")
+        Console.WriteLine("Number1: ")
+        num1 = Console.ReadLine()
+        Console.WriteLine("Number2: ")
+        num2 = Console.ReadLine()
+        Console.WriteLine("Number3: ")
+        num3 = Console.ReadLine()
+
+        If num1 > num2 And num1 > num3 Then
+            highest = num1
+            Console.WriteLine("the higest vaule is : " & highest)
+        ElseIf num2 > num3 And num2 > num1 Then
+            highest = num2
+            Console.WriteLine("the higest vaule is : " & highest)
+        ElseIf num3 > num2 And num3 > num1 Then
+            highest = num3
+            Console.WriteLine("the higest vaule is : " & highest)
+        End If
+        Console.ReadLine()
+    End Sub
+
+End Module

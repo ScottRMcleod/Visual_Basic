@@ -1,0 +1,155 @@
+
+Module Module1
+
+    'Project Purpose to demonstrate the basics of using visual basic 
+    'This application is only developed to explain the basics of how to use the Visual basic language
+    'Some of the features of this application
+    ' Declaration of num1, num2, num3, and age as static type integer
+
+
+    ' defines the age as static type integer
+    Dim num1, num2 As Integer
+    Dim total As Double
+    Dim name, choose As String
+
+    Private Sub Menu(name)
+
+        Console.WriteLine(" Welcome " + name)
+        Console.WriteLine("Please Select from the following options ")
+        Console.WriteLine("<< ------- Main Menu ------- >> {0}  Option (1). Add{0}  Option (2). Subtract{0}  Option (3). Divide{0}  Option (4). Muiltiple{0}  Option (5). Return to Main Menu Application{0}  Option (6). Exit Application{0}",
+                             Environment.NewLine)
+        Console.WriteLine("e.g. Option1 or option1 " & Environment.NewLine)
+        choose = Console.ReadLine()
+
+        If choose = "Option1" Or choose = "option1" Then
+            Console.WriteLine("Please Enter 2 numbers to Add together")
+            Add()
+        End If
+        If choose = "Option2" Or choose = "option2" Then
+            Console.WriteLine("Please Enter 2 numbers to Subtract together")
+            Subtract()
+        End If
+        If choose = "Option3" Or choose = "option3" Then
+            Console.WriteLine("Please Enter 2 numbers to Divide together")
+            Divide()
+        End If
+        If choose = "Option4" Or choose = "option4" Then
+            Console.WriteLine("Please Enter 2 numbers to Muiltiple together")
+            Muiltiple()
+        End If
+        If choose = "Option5" Or choose = "option5" Then
+            ReturntoMainMenu()
+        End If
+        If choose = "Option6" Or choose = "option6" Then
+            returnToMenu()
+        End If
+    End Sub
+    Private Sub Add()
+
+        'Adds numbers to each other 
+        Console.WriteLine("Number 1")
+        num1 = Console.ReadLine()
+        Console.WriteLine("Number 2")
+        num2 = Console.ReadLine()
+
+        total = num1 + num2
+        Console.WriteLine("Your Total is: ")
+        Console.WriteLine(total)
+
+        returnToMenu()
+    End Sub
+    Private Sub Subtract()
+
+        'Adds numbers to each other 
+        Console.WriteLine("Number 1")
+        num1 = Console.ReadLine()
+        Console.WriteLine("Number 2")
+        num2 = Console.ReadLine()
+
+
+        total = num1 - num2
+        Console.WriteLine("Your Total is: ")
+        Console.WriteLine(total)
+
+        returnToMenu()
+    End Sub
+    Private Sub Divide()
+        Console.WriteLine("Number 1")
+        num1 = Console.ReadLine()
+        Console.WriteLine("Number 2")
+        num2 = Console.ReadLine()
+
+        total = num1 / num2
+        Console.WriteLine("Your Total is: ")
+        Console.WriteLine(total)
+
+        returnToMenu()
+    End Sub
+    Private Sub invalideOption()
+        Console.WriteLine("Sorry Invalid option has been selected Please try again")
+        Console.WriteLine("Please Enter option1, option2 option3 or option4 thank you..")
+        Console.ReadLine()
+        Console.Clear()
+        Menu(name)
+    End Sub
+    Private Sub Muiltiple()
+
+        Console.WriteLine("Number 1")
+        num1 = Console.ReadLine()
+        Console.WriteLine("Number 2")
+        num2 = Console.ReadLine()
+
+
+        total = num1 * num2
+        Console.WriteLine("Your Total is: ")
+        Console.WriteLine(total)
+
+        returnToMenu()
+    End Sub
+
+    Private Sub ScreenColour()
+        ' this cane be changed if you want
+        Console.BackgroundColor = ConsoleColor.Blue
+        Console.ForegroundColor = ConsoleColor.Yellow
+        ' this ensure that the the whole openbed console has the colour appened
+        Console.Clear()
+    End Sub
+    Private Sub returnToMenu()
+        Console.WriteLine("Thank you is there any other calculation you would like to complete?")
+        Console.WriteLine("Y / N ")
+        choose = Console.ReadLine()
+        If choose = "Y" Or choose = "y" Then
+            Console.Clear()
+            Menu(name)
+        ElseIf choose = "N" Or choose = "n"
+            Console.WriteLine("Thank you " + name + "you will now exit this application thank you")
+            Console.Clear()
+            Console.WriteLine("Please press enter to exit")
+        End If
+
+    End Sub
+    Private Sub ReturntoMainMenu()
+        Main()
+    End Sub
+
+    Sub Main()
+        'Call the Screen Colour Method which sets the console colous for the App 
+        ScreenColour()
+
+        'Presents the date to the user
+        Console.WriteLine("Date: " + Now)
+
+        ' Presents the user with a welcome message & Prompts users name
+        Console.WriteLine("<< Welcome to My first Console application in visual basic >>" &
+                          Environment.NewLine & Environment.NewLine &
+                          "This is a simple calculator application" &
+                          Environment.NewLine &
+                          "Before starting this app could you please enter your name: ")
+        ' accepts users input
+        name = Console.ReadLine
+        ' This is passing the name variable into the menu method to present the users name at the top of the console
+        Menu(name)
+        ' this is a control to enure that the application waits for the user to key a key before closing the application
+        Console.ReadLine()
+    End Sub
+End Module

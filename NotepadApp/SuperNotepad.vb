@@ -1,4 +1,4 @@
-﻿' This application creates a Simple Text Editor which enables users to 
+' This application creates a Simple Text Editor which enables users to 
 ' Create, Save, Open and edit text files stored localy on thier machine
 ' Target Audience : New Computer Users
 
@@ -15,9 +15,10 @@ Public Class frmMain
         Try
             Dim dlg1 As OpenFileDialog = New OpenFileDialog
             dlg1.Title = "Open"
-            dlg1.Filter = " Text Files(*.txt) |*.txt"
+            dlg1.DefaultExt = "*.rtf"
+            dlg1.Filter = "RTF Files |*.rtf"
             If dlg1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-                richTxtbox1.LoadFile(dlg1.FileName)
+                richTxtbox1.Text = My.Computer.FileSystem.ReadAllText(dlg1.FileName)
             End If
         Catch ex As Exception : End Try
 
@@ -30,7 +31,7 @@ Public Class frmMain
         Try
             Dim dlg1 As SaveFileDialog = New SaveFileDialog
             dlg1.Title = "Save"
-            dlg1.Filter = "Text Files(*.txt)|*.txt"
+            dlg1.Filter = "RTF Files |*.rtf"
             If dlg1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
                 richTxtbox1.SaveFile(dlg1.FileName, RichTextBoxStreamType.PlainText)
             End If
